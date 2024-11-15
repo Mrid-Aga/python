@@ -1,5 +1,5 @@
 max = 0
-while max <= 0 or max > 8:
+while max <= 0 or max > 8 or max.is_integer()==False:
     print("please put in a number between 1 and 8")
     max = int(input("How tall should it be? "))
 
