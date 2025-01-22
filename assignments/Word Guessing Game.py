@@ -275,8 +275,6 @@ def hangman():
             print(" |")
             print(" |")
             print("_|_")
-    else:
-        pass
 print(chosen_word)
 hangman()
 while user_word != chosen_word and guesses >0 and hangman_count != 6:
