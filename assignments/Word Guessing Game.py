@@ -1,4 +1,5 @@
 import random
+import cutie
 words = [
 "abandon","ability","able","abortion","about","above","abroad","absence","absolute","absolutely","absorb",
 "abuse","academic","accept","access","accident","accompany","accomplish","according","account","accurate","accuse","achieve","achievement","acid",
@@ -208,71 +209,75 @@ user_word = "*"*len(chosen_word)
 guesses = len(chosen_word)+2
 hangman_count = 0
 guessed_letters = []
+hangman_bool = cutie.prompt_yes_or_no("hangman mode?")
 def hangman():
-    if hangman_count == 0:
-        print("  ____")
-        print(" |    |")
-        print(" |")
-        print(" |")
-        print(" |")
-        print(" |")
-        print(" |")
-        print("_|_")
-    elif hangman_count == 1:
-        print("  ____")
-        print(" |    |")
-        print(" |    o")
-        print(" |")
-        print(" |")
-        print(" |")
-        print(" |")
-        print("_|_")
-    elif hangman_count == 2:
-        print("  ____")
-        print(" |    |")
-        print(" |    o")
-        print(" |    |")
-        print(" |")
-        print(" |")
-        print(" |")
-        print("_|_")
-    elif hangman_count == 3:
-        print("  ____")
-        print(" |    |")
-        print(" |    o")
-        print(" |   /|")
-        print(" |")
-        print(" |")
-        print(" |")
-        print("_|_")
-    elif hangman_count == 4:
-        print("  ____")
-        print(" |    |")
-        print(" |    o")
-        print(" |   /|\\")
-        print(" |")
-        print(" |")
-        print(" |")
-        print("_|_")
-    elif hangman_count == 5:
-        print("  ____")
-        print(" |    |")
-        print(" |    o")
-        print(" |   /|\\")
-        print(" |   /")
-        print(" |")
-        print(" |")
-        print("_|_")
-    elif hangman_count == 6:
-        print("  ____")
-        print(" |    |")
-        print(" |    o")
-        print(" |   /|\\")
-        print(" |   / \\")
-        print(" |")
-        print(" |")
-        print("_|_")
-print(user_word)
+    if hangman_bool:
+        if hangman_count == 0:
+            print("  ____")
+            print(" |    |")
+            print(" |")
+            print(" |")
+            print(" |")
+            print(" |")
+            print(" |")
+            print("_|_")
+        elif hangman_count == 1:
+            print("  ____")
+            print(" |    |")
+            print(" |    o")
+            print(" |")
+            print(" |")
+            print(" |")
+            print(" |")
+            print("_|_")
+        elif hangman_count == 2:
+            print("  ____")
+            print(" |    |")
+            print(" |    o")
+            print(" |    |")
+            print(" |")
+            print(" |")
+            print(" |")
+            print("_|_")
+        elif hangman_count == 3:
+            print("  ____")
+            print(" |    |")
+            print(" |    o")
+            print(" |   /|")
+            print(" |")
+            print(" |")
+            print(" |")
+            print("_|_")
+        elif hangman_count == 4:
+            print("  ____")
+            print(" |    |")
+            print(" |    o")
+            print(" |   /|\\")
+            print(" |")
+            print(" |")
+            print(" |")
+            print("_|_")
+        elif hangman_count == 5:
+            print("  ____")
+            print(" |    |")
+            print(" |    o")
+            print(" |   /|\\")
+            print(" |   /")
+            print(" |")
+            print(" |")
+            print("_|_")
+        elif hangman_count == 6:
+            print("  ____")
+            print(" |    |")
+            print(" |    o")
+            print(" |   /|\\")
+            print(" |   / \\")
+            print(" |")
+            print(" |")
+            print("_|_")
+    else:
+        pass
+print(chosen_word)
 hangman()
 while user_word != chosen_word and guesses >0 and hangman_count != 6:
     user_input = input("guess a letter: \n")
@@ -305,6 +310,8 @@ while user_word != chosen_word and guesses >0 and hangman_count != 6:
     print(user_word)
     print(f"You have {guesses} guesses left")
     print(f"You have guessed {guessed_letters} so far")
+    if hangman_bool:
+        hangman()
 if user_word == chosen_word and guesses > 0 and hangman_count < 6:
     print(f"Congrats you guessed correctly in just {len(chosen_word)+2-guesses} guesses")
 else:
