@@ -275,11 +275,12 @@ def hangman():
             print(" |")
             print(" |")
             print("_|_")
-print(chosen_word)
 hangman()
+print(user_word)
 while user_word != chosen_word and guesses >0 and hangman_count != 6:
     user_input = input("guess a letter: \n")
-    guesses -= 1
+    if not hangman_bool:
+        guesses -= 1
     user_input = user_input.lower()
     if user_input == chosen_word:
         print(f"bongrats you guessed correctly in just {len(chosen_word)+2-guesses} guesses")
@@ -306,10 +307,12 @@ while user_word != chosen_word and guesses >0 and hangman_count != 6:
     user_word = "".join(user_word)
     guessed_letters.sort()
     print(user_word)
-    print(f"You have {guesses} guesses left")
+    if not hangman_bool:
+        print(f"You have {guesses} guesses left")
+    else:
+        print(f"You have {6-hangman_count} guesses left")
     print(f"You have guessed {guessed_letters} so far")
-    if hangman_bool:
-        hangman()
+
 if user_word == chosen_word and guesses > 0 and hangman_count < 6:
     print(f"Congrats you guessed correctly in just {len(chosen_word)+2-guesses} guesses")
 else:

@@ -7,12 +7,13 @@ def is_triangle(a,b,c):
         print("that's a triangle!")
     else:
         print("not a triangle")
+        quit()
 
 def is_right_triangle(a,b,c):
     sides = [a,b,c]
     sides.sort()
     if sides[0]**2 + sides[1]**2 == sides[2]**2:
-        print("That's a tight triangle!")
+        print("That's a right triangle!")
     else:
         print("That's not a right triangle")
 
